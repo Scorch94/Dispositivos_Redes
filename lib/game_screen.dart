@@ -117,6 +117,7 @@ class _GameScreenState extends State<GameScreen> {
   String _answer = '';
   String _feedback = '';
   int _score = 0;
+  final TextEditingController _answerController = TextEditingController();
 
   @override
   void initState() {
@@ -135,6 +136,7 @@ class _GameScreenState extends State<GameScreen> {
       }
       _feedback = '';
       _answer = '';
+      _answerController.clear(); // Limpa o campo de resposta
     });
   }
 
@@ -145,9 +147,18 @@ class _GameScreenState extends State<GameScreen> {
         _score++;
         _feedback = 'Correto!';
       } else {
-        _feedback = 'Incorreto. Tente novamente.';
+        _feedback = 'Incorreto.';
       }
+      Future.delayed(Duration(seconds: 3), () {
+        _generateQuestion();
+      });
     });
+  }
+
+  @override
+  void dispose() {
+    _answerController.dispose();
+    super.dispose();
   }
 
   @override
@@ -166,6 +177,7 @@ class _GameScreenState extends State<GameScreen> {
               style: TextStyle(fontSize: 18),
             ),
             TextField(
+              controller: _answerController,
               onChanged: (value) {
                 _answer = value;
               },
