@@ -1,16 +1,30 @@
-# dispositivos_redes
+# Jogo Educativo sobre Endereçamento IPv4 em Flutter
 
-A new Flutter project.
+Este projeto é um jogo educativo desenvolvido com Flutter, destinado a ajudar jogadores a explorarem e aprenderem mais sobre conceitos de Redes de Computadores, especialmente sobre endereçamento IPv4. O jogo gera perguntas automaticamente sobre Network ID, Broadcast e verificação de endereços IPv4 no mesmo segmento de rede.
 
-## Getting Started
+## Objetivos do Jogo
 
-This project is a starting point for a Flutter application.
+- **Ensinar Conceitos de Redes de Computadores**: Através de perguntas e desafios, o jogo visa ensinar aos jogadores sobre Network ID, Broadcast e segmentação de rede no contexto do endereçamento IPv4.
+- **Níveis de Dificuldade**: As perguntas são classificadas em três níveis de dificuldade para atender jogadores com diferentes níveis de conhecimento:
+  - **Nível 1**: Perguntas sobre endereços IPv4 /8, /16 e /24 com máscaras variando aleatoriamente.
+  - **Nível 2**: Perguntas sobre sub-redes, especificando a máscara de sub-rede, que também varia.
+  - **Nível 3**: Perguntas sobre super-redes.
 
-A few resources to get you started if this is your first Flutter project:
+## Funcionalidades
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- **Geração Automática de Perguntas**: As perguntas são geradas automaticamente com base no nível de dificuldade selecionado.
+- **Interatividade**: Os jogadores podem escolher o nível de dificuldade desejado para cada resposta.
+- **Feedback Imediato**: O jogo oferece feedback imediato sobre a resposta do jogador, ajudando a reforçar o aprendizado.
+- **Troca de Perguntas**: Após cada resposta correta ou incorreta, uma nova pergunta é gerada automaticamente, e o campo de resposta é limpo.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Como Jogar
+
+1. **Selecione o Nível de Dificuldade**: Escolha entre Nível 1, Nível 2 ou Nível 3.
+2. **Responda às Perguntas**: Responda às perguntas sobre Network ID, Broadcast ou verificação de endereços IPv4 no mesmo segmento de rede.
+3. **Receba Feedback**: Após responder, você receberá feedback imediato indicando se a resposta está correta ou incorreta.
+4. **Continue Jogando**: Após cada resposta, uma nova pergunta será gerada automaticamente.
+
+## Tecnologias Utilizadas
+
+- **Flutter**: Framework de desenvolvimento de aplicativos multiplataforma.
+- **Dart**: Linguagem de programação utilizada pelo Flutter.
