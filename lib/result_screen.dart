@@ -1,4 +1,3 @@
-// result_screen.dart
 import 'package:flutter/material.dart';
 
 class ResultScreen extends StatelessWidget {
@@ -24,7 +23,7 @@ class ResultScreen extends StatelessWidget {
             ElevatedButton(
               child: Text('Jogar Novamente'),
               onPressed: () {
-                Navigator.popUntil(context, ModalRoute.withName('/'));
+                Navigator.popUntil(context, ModalRoute.withName('/welcome'));
               },
             ),
           ],

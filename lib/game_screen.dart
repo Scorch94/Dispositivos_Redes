@@ -141,19 +141,36 @@ class _GameScreenState extends State<GameScreen> {
   }
 
   void _checkAnswer() {
-    setState(() {
-      bool isCorrect = checkAnswer(_currentQuestion, _answer);
-      if (isCorrect) {
-        _score++;
-        _feedback = 'Correto!';
-      } else {
-        _feedback = 'Incorreto.';
+  setState(() {
+    bool isCorrect = checkAnswer(_currentQuestion, _answer);
+    int pointsToAdd = 0;
+    if (isCorrect) {
+      if (widget.level == 1) {
+        pointsToAdd = 10;
+      } else if (widget.level == 2) {
+        pointsToAdd = 20;
+      } else if (widget.level == 3) {
+        pointsToAdd = 30;
       }
-      Future.delayed(Duration(seconds: 3), () {
-        _generateQuestion();
-      });
+      _feedback = 'Correto! +$pointsToAdd pontos';
+    } else {
+      if (widget.level == 1) {
+        pointsToAdd = -5;
+      } else if (widget.level == 2) {
+        pointsToAdd = -10;
+      } else if (widget.level == 3) {
+        pointsToAdd = -15;
+      }
+      _feedback = 'Incorreto. $pointsToAdd pontos';
+    }
+    _score += pointsToAdd;
+
+    Future.delayed(Duration(seconds: 2), () {
+      _generateQuestion();
     });
-  }
+  });
+}
+
 
   @override
   void dispose() {
@@ -189,11 +206,6 @@ class _GameScreenState extends State<GameScreen> {
             ),
             SizedBox(height: 20),
             Text(_feedback),
-            SizedBox(height: 20),
-            ElevatedButton(
-              child: Text('Próxima Pergunta'),
-              onPressed: _generateQuestion,
-            ),
             SizedBox(height: 20),
             ElevatedButton(
               child: Text('Ver Resultados'),
