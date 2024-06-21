@@ -1,12 +1,14 @@
-// main.dart
 import 'package:flutter/material.dart';
 import 'welcome.dart';
+import 'login.dart';
+import 'register.dart';
+import 'game_screen.dart';
 
 void main() {
-  runApp(Dispositivos_Redes());
+  runApp(IPv4QuizGameApp());
 }
 
-class Dispositivos_Redes extends StatelessWidget {
+class IPv4QuizGameApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -14,7 +16,13 @@ class Dispositivos_Redes extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: WelcomeScreen(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => LoginPage(),
+        '/welcome': (context) => WelcomeScreen(),
+        '/register': (context) => RegisterPage(),
+        '/game': (context) => GameScreen(level: 1),
+      },
     );
   }
 }
